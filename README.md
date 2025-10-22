@@ -75,6 +75,8 @@ src/
    - ✅ Responsive design with category filtering
    - ✅ Author information and read time estimates
    - ✅ Modern React components with Tailwind CSS
+   - ✅ Interactive Anima SDK demo section
+   - ✅ Design-to-code automation showcase
 
 
 ## 🔧 Available Scripts
@@ -125,10 +127,20 @@ The project demonstrates how Anima SDK can be used to:
 - **Maintain design consistency** across the application
 - **Speed up development** with AI-powered code generation
 
+### Interactive Demo
+
+The application includes a live Anima SDK demo that allows you to:
+
+- **Test Design Analysis** - Analyze design URLs and extract components
+- **Generate React Code** - Automatically create React components
+- **See Real-time Results** - View generated code and integration status
+- **Experience the Workflow** - Understand the complete design-to-code process
+
 ### Key Features
 
 - **Design System Integration** - Consistent styling with Tailwind CSS
 - **Component Generation** - Automated React component creation
+- **Interactive Demo** - Live testing of Anima SDK capabilities
 - **Responsive Design** - Mobile-first approach with custom breakpoints
 - **Type Safety** - Full TypeScript support
 
@@ -162,6 +174,8 @@ The application is configured for easy Netlify deployment:
 - ✅ **Category Filtering** for content organization
 - ✅ **Responsive Design** optimized for all devices
 - ✅ **Contentful CMS** integration for content management
+- ✅ **Anima SDK Integration** with interactive demo
+- ✅ **Design-to-Code Automation** showcase
 - ✅ **Loading States** and error handling
 - ✅ **Author Information** with avatars
 - ✅ **Read Time Estimates** for better UX
