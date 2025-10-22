@@ -17,9 +17,9 @@
    - **Node version**: 18 (or latest)
 6. Add environment variables in Netlify dashboard:
    ```
-   VITE_CONTENTFUL_SPACE_ID=dah4a45wn7nn
-   VITE_CONTENTFUL_ACCESS_TOKEN=jCvVaykeWWgUO4E44IdS_SMJXjdcTGhMTvfDP6ityoo
-   VITE_CONTENTFUL_PREVIEW_TOKEN=T9d_qyekWu3LWFfQKkL0x4AUVVRACnJC9wNWk4JNz6A
+   VITE_CONTENTFUL_SPACE_ID=your-contentful-space-id
+   VITE_CONTENTFUL_ACCESS_TOKEN=your-contentful-access-token
+   VITE_CONTENTFUL_PREVIEW_TOKEN=your-contentful-preview-token
    ```
 7. Deploy!
 
@@ -44,9 +44,9 @@ netlify deploy --prod --dir=dist
 Add these in your Netlify dashboard under Site Settings > Environment Variables:
 
 ```
-VITE_CONTENTFUL_SPACE_ID=dah4a45wn7nn
-VITE_CONTENTFUL_ACCESS_TOKEN=jCvVaykeWWgUO4E44IdS_SMJXjdcTGhMTvfDP6ityoo
-VITE_CONTENTFUL_PREVIEW_TOKEN=T9d_qyekWu3LWFfQKkL0x4AUVVRACnJC9wNWk4JNz6A
+VITE_CONTENTFUL_SPACE_ID=your-contentful-space-id
+VITE_CONTENTFUL_ACCESS_TOKEN=your-contentful-access-token
+VITE_CONTENTFUL_PREVIEW_TOKEN=your-contentful-preview-token
 ```
 
 ## Project Status
