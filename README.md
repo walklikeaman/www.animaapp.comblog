@@ -53,7 +53,7 @@ src/
 
 ## 🚀 Getting Started
 
-### For Employers/Reviewers (Quick Demo)
+### For Reviewers (Quick Demo)
 
 **No setup required!** The application works out-of-the-box with pre-configured Contentful credentials and sample data.
 
