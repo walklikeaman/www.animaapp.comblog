@@ -23,10 +23,10 @@
    ```
 7. Deploy!
 
-### Option 2: Netlify CLI (if token works)
+### Option 2: Netlify CLI
 ```bash
-# Set your token
-export NETLIFY_AUTH_TOKEN=nfp_vsCNUhKxZQnb1uZ6BuAFA1fZrAgER1759d48
+# Set your token (get from Netlify dashboard)
+export NETLIFY_AUTH_TOKEN=your-netlify-token-here
 
 # Create site
 netlify sites:create --name anima-blog-clone
