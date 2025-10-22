@@ -4,7 +4,6 @@ import { BlogHeader } from "./sections/BlogHeader";
 import { MainContent } from "./sections/MainContent";
 import { Footer } from "./sections/Footer";
 import { FloatingWidget } from "./components/FloatingWidget";
-import AnimaIntegration from "./components/AnimaIntegration";
 import { getBlogPosts } from "./lib/contentful";
 
 export const App = () => {
@@ -26,9 +25,6 @@ export const App = () => {
           <i className="text-white font-black bg-[url('https://www.animaapp.com/blog/wp-content/uploads/2022/08/menu-icon-mbl-1.png')] bg-no-repeat bg-contain box-border caret-transparent inline-block h-[30px] leading-4 text-nowrap w-6 font-font_awesome_6_free md:text-neutral-800 md:bg-none md:bg-repeat md:bg-auto md:h-auto md:w-auto before:accent-auto before:box-border before:caret-transparent before:text-white before:hidden before:text-base before:not-italic before:normal-nums before:font-black before:tracking-[normal] before:leading-4 before:list-outside before:list-disc before:pointer-events-auto before:text-center before:indent-[0px] before:normal-case before:text-nowrap before:visible before:border-separate before:font-font_awesome_6_free before:md:text-neutral-800 before:md:inline"></i>
         </div>
         <MainContent />
-        <div className="max-w-4xl mx-auto px-4 py-8">
-          <AnimaIntegration />
-        </div>
         <Footer />
         <footer className="box-border caret-transparent hidden max-w-[830px] text-center mb-10 mx-auto">
           <div className="box-border caret-transparent max-w-none w-[90%] mx-auto px-[15px] md:max-w-[1140px] md:w-full">

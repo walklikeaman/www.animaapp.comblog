@@ -1,23 +1,12 @@
+import { AnimaSDK } from '@animaapp/anima-sdk';
+
 // Anima SDK configuration
 const ANIMA_API_KEY = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZGVudGl0eSI6IjY4YzczODA1ZmRjYzJhODkwMGRiYzI4NyIsImRlZmF1bHRUZWFtSWQiOiI2OGM3MzgwNmZkY2MyYTg5MDBkYmMyOGEiLCJpYXQiOjE3NTc4ODY2MDIsImV4cCI6MTc4OTQyMjYwMiwibmJmIjoxNzU3ODg2NjAyfQ.kNz1SOq2TkKau7ZdzbABxrdgpYexZcicniUu8j1Cv_A';
 
-// Lazy load Anima SDK to prevent initialization errors
-let animaSDK: any = null;
-
-export const getAnimaSDK = async () => {
-  if (!animaSDK) {
-    try {
-      const { AnimaSDK } = await import('@animaapp/anima-sdk');
-      animaSDK = new AnimaSDK({
-        apiKey: ANIMA_API_KEY,
-      });
-    } catch (error) {
-      console.warn('Anima SDK not available:', error);
-      return null;
-    }
-  }
-  return animaSDK;
-};
+// Initialize Anima SDK
+export const animaSDK = new AnimaSDK({
+  apiKey: ANIMA_API_KEY,
+});
 
 // Interface for Anima design data
 export interface AnimaDesign {
@@ -33,16 +22,11 @@ export async function generateReactCodeFromDesign(designUrl: string): Promise<st
   try {
     console.log('🎨 Anima SDK: Generating React code from design...');
     
-    const sdk = await getAnimaSDK();
-    if (!sdk) {
-      throw new Error('Anima SDK not available');
-    }
-    
     // Use Anima SDK to analyze the design
-    const design = await sdk.analyzeDesign(designUrl);
+    const design = await animaSDK.analyzeDesign(designUrl);
     
     // Generate React components
-    const reactCode = await sdk.generateReactCode({
+    const reactCode = await animaSDK.generateReactCode({
       designUrl,
       framework: 'react',
       styling: 'tailwind',
@@ -61,15 +45,6 @@ export async function generateReactCodeFromDesign(designUrl: string): Promise<st
 export async function demonstrateAnimaIntegration() {
   try {
     console.log('🚀 Anima SDK: Starting integration demonstration...');
-    
-    const sdk = await getAnimaSDK();
-    if (!sdk) {
-      return {
-        success: false,
-        error: 'Anima SDK not available',
-        message: 'Anima SDK integration failed - SDK not available'
-      };
-    }
     
     // Example: Analyze a design URL (this would be a real Figma/design URL in practice)
     const exampleDesignUrl = 'https://www.animaapp.com/blog';
@@ -94,5 +69,5 @@ export async function demonstrateAnimaIntegration() {
   }
 }
 
-// Export the lazy-loaded SDK function
-export default getAnimaSDK;
+// Export the SDK instance for direct use
+export default animaSDK;

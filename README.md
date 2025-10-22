@@ -75,8 +75,6 @@ src/
    - ✅ Responsive design with category filtering
    - ✅ Author information and read time estimates
    - ✅ Modern React components with Tailwind CSS
-   - ✅ Interactive Anima SDK demo section
-   - ✅ Design-to-code automation showcase
 
 
 ## 🔧 Available Scripts
@@ -174,8 +172,7 @@ The application is configured for easy Netlify deployment:
 - ✅ **Category Filtering** for content organization
 - ✅ **Responsive Design** optimized for all devices
 - ✅ **Contentful CMS** integration for content management
-- ✅ **Anima SDK Integration** with interactive demo
-- ✅ **Design-to-Code Automation** showcase
+- ✅ **Anima SDK Integration** (available in codebase)
 - ✅ **Loading States** and error handling
 - ✅ **Author Information** with avatars
 - ✅ **Read Time Estimates** for better UX
