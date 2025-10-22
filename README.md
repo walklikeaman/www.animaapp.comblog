@@ -67,11 +67,11 @@ src/
 
 2. **Open your browser**
    - Go to `http://localhost:5173`
-   - The app will load with 19 blog posts from Contentful
+   - The app will load with blog posts from Contentful
    - No environment variables or API keys needed!
 
 3. **What you'll see**
-   - ✅ 19 blog posts loaded from Contentful CMS
+   - ✅ Blog posts loaded from Contentful CMS
    - ✅ Responsive design with category filtering
    - ✅ Author information and read time estimates
    - ✅ Modern React components with Tailwind CSS
@@ -170,7 +170,7 @@ The application is configured for easy Netlify deployment:
 
 ## 📱 Features
 
-- ✅ **19 Blog Posts** with rich content and metadata
+- ✅ **Blog Posts** with rich content and metadata
 - ✅ **Category Filtering** for content organization
 - ✅ **Responsive Design** optimized for all devices
 - ✅ **Contentful CMS** integration for content management
