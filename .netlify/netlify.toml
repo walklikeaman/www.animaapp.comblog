@@ -1,0 +1,34 @@
+functionsDirectory = "/Users/walklikeaman/Downloads/anima-blog-cloner/output/netlify/functions"
+functionsDirectoryOrigin = "ui"
+plugins = []
+headers = []
+redirects = []
+
+[dev]
+command = "npm run dev"
+port = 5173.0
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "/Users/walklikeaman/Downloads/anima-blog-cloner/output/dist"
+publishOrigin = "config"
+commandOrigin = "config"
+command = "npm install && npm run build"
+functions = "/Users/walklikeaman/Downloads/anima-blog-cloner/output/netlify/functions"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
