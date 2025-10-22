@@ -3,8 +3,8 @@ import { createClient, Entry, Asset } from 'contentful';
 // Contentful configuration from environment variables
 const contentfulConfig = {
   space: import.meta.env.VITE_CONTENTFUL_SPACE_ID || 'dah4a45wn7nn',
-  accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN || 'your-access-token-here',
-  previewToken: import.meta.env.VITE_CONTENTFUL_PREVIEW_TOKEN || 'your-preview-token-here',
+  accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN || 'jCvVaykeWWgUO4E44IdS_SMJXjdcTGhMTvfDP6ityoo',
+  previewToken: import.meta.env.VITE_CONTENTFUL_PREVIEW_TOKEN || 'T9d_qyekWu3LWFfQKkL0x4AUVVRACnJC9wNWk4JNz6A',
 };
 
 // Create Contentful client
