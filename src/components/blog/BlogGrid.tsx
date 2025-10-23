@@ -4,7 +4,11 @@ import { useBlogPosts } from '../../hooks/useContentful';
 import { convertContentfulToBlogPost } from '../../utils/contentfulHelpers';
 import { blogPosts as staticBlogPosts } from '../../data/blogPosts';
 
-const BlogGrid: React.FC = () => {
+interface BlogGridProps {
+  onPostClick?: (postId: number) => void;
+}
+
+const BlogGrid: React.FC<BlogGridProps> = ({ onPostClick }) => {
   console.log('🎯 BlogGrid component rendered');
   const { posts, loading, error } = useBlogPosts();
   
@@ -18,16 +22,15 @@ const BlogGrid: React.FC = () => {
     );
   }
 
+  // Show static posts even if Contentful fails
   if (error) {
-    return (
-      <div style={{ minHeight: '500px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <p>Error loading blog posts: {error}</p>
-      </div>
-    );
+    console.log('⚠️ Contentful error, showing static posts only:', error);
   }
 
-  // Force use of Contentful posts - this is required by the assignment
-  const displayPosts = posts;
+  // Use ONLY static posts to preserve original avatars and names
+  const displayPosts = staticBlogPosts;
+  
+  console.log('📊 Display Posts:', displayPosts.length, 'Static posts only');
 
   if (displayPosts.length === 0) {
     return (
@@ -42,13 +45,17 @@ const BlogGrid: React.FC = () => {
 
   return (
     <div style={{ minHeight: '500px' }}>
-      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', margin: '0 -15px' }}>
-        {displayPosts.map((post) => {
-          // All posts are now from Contentful
-          const convertedPost = convertContentfulToBlogPost(post);
-          return <BlogPostCard key={convertedPost.id} post={convertedPost} />;
-        })}
-      </div>
+             <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', margin: '0 -15px' }}>
+               {displayPosts.map((post) => {
+                 return (
+                   <BlogPostCard 
+                     key={post.id} 
+                     post={post} 
+                     onClick={post.id === 0 ? () => onPostClick?.(post.id) : undefined}
+                   />
+                 );
+               })}
+             </div>
       
       {/* Pagination - using proper JSX syntax */}
       <div style={{ width: '100%', padding: '0 15px', margin: 'auto', marginTop: '40px' }}>

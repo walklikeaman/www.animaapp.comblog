@@ -19,16 +19,31 @@ interface BlogPost {
 
 interface BlogPostCardProps {
   post: BlogPost;
+  onClick?: () => void;
 }
 
-const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
+const BlogPostCard: React.FC<BlogPostCardProps> = ({ post, onClick }) => {
+  const handleClick = () => {
+    console.log('🔥 BlogPostCard clicked:', post.id, post.title);
+    if (onClick) {
+      console.log('✅ onClick exists, calling it');
+      onClick();
+    } else {
+      console.log('❌ onClick is undefined');
+    }
+  };
+
   return (
-    <div style={{ 
-      flex: '0 0 33.333%', 
-      padding: '0 15px', 
-      marginBottom: '30px',
-      minWidth: '300px'
-    }}>
+    <div 
+      style={{ 
+        flex: '0 0 33.333%', 
+        padding: '0 15px', 
+        marginBottom: '30px',
+        minWidth: '300px',
+        cursor: onClick ? 'pointer' : 'default'
+      }}
+      onClick={handleClick}
+    >
       <article style={{ 
         backgroundColor: 'white',
         borderRadius: '8px',
@@ -90,22 +105,46 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
             color: '#2b2b2b',
             flex: 1
           }}>
-            <a
-              href={post.url}
-              style={{
-                color: 'inherit',
-                textDecoration: 'none',
-                transition: 'color 0.2s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = '#ff6250';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = '#2b2b2b';
-              }}
-            >
-              {post.title}
-            </a>
+            {onClick ? (
+              <span
+                style={{
+                  color: 'inherit',
+                  textDecoration: 'none',
+                  transition: 'color 0.2s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = '#ff6250';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = '#2b2b2b';
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleClick();
+                }}
+              >
+                {post.title}
+              </span>
+            ) : (
+              <a
+                href={post.url}
+                style={{
+                  color: 'inherit',
+                  textDecoration: 'none',
+                  transition: 'color 0.2s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = '#ff6250';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = '#2b2b2b';
+                }}
+              >
+                {post.title}
+              </a>
+            )}
           </h3>
 
           {/* Description */}

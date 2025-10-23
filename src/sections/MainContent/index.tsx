@@ -1,7 +1,11 @@
 import BlogGrid from "@/components/blog/BlogGrid";
 import { CategoryFilters } from "@/components/blog/CategoryFilters";
 
-export const MainContent = () => {
+interface MainContentProps {
+  onPostClick?: (postId: number) => void;
+}
+
+export const MainContent = ({ onPostClick }: MainContentProps) => {
   return (
     <div className="box-border caret-transparent max-w-none w-[90%] mx-auto px-[15px] md:max-w-[1140px] md:w-full">
       <div className="box-border caret-transparent flex flex-wrap ml-[-15px] mr-[-15px]">
@@ -23,7 +27,7 @@ export const MainContent = () => {
               <div className="box-border caret-transparent w-full mb-[30px]">
                 <CategoryFilters />
               </div>
-              <BlogGrid />
+              <BlogGrid onPostClick={onPostClick} />
             </div>
           </article>
         </div>
