@@ -233,4 +233,4 @@ This project is part of the Anima Sales Engineer assignment and is for demonstra
 
 ---
 
-**Built with ❤️ using Anima SDK, React, and Contentful**
+**Built with ❤️ using Anima SDK, React, and Contentful**# Updated Thu Oct 23 17:10:55 IDT 2025
