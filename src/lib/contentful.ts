@@ -2,9 +2,9 @@ import { createClient, Entry, Asset } from 'contentful';
 
 // Contentful configuration from environment variables
 const contentfulConfig = {
-  space: import.meta.env.VITE_CONTENTFUL_SPACE_ID || 'dah4a45wn7nn',
-  accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN || 'jCvVaykeWWgUO4E44IdS_SMJXjdcTGhMTvfDP6ityoo',
-  previewToken: import.meta.env.VITE_CONTENTFUL_PREVIEW_TOKEN || 'T9d_qyekWu3LWFfQKkL0x4AUVVRACnJC9wNWk4JNz6A',
+  space: (import.meta as any).env?.VITE_CONTENTFUL_SPACE_ID || 'dah4a45wn7nn',
+  accessToken: (import.meta as any).env?.VITE_CONTENTFUL_ACCESS_TOKEN || 'jCvVaykeWWgUO4E44IdS_SMJXjdcTGhMTvfDP6ityoo',
+  previewToken: (import.meta as any).env?.VITE_CONTENTFUL_PREVIEW_TOKEN || 'T9d_qyekWu3LWFfQKkL0x4AUVVRACnJC9wNWk4JNz6A',
 };
 
 // Create Contentful client
@@ -24,24 +24,27 @@ export const contentfulPreviewClient = createClient({
 
 // Blog Post interface matching your Contentful model
 export interface ContentfulBlogPost {
-  title: string;
-  slug: string;
-  excerpt: string;
-  content: any; // Rich text content
-  coverImage?: Asset;
-  coverImageUrl?: string;
-  authorAvatarUrl?: string;
-  category: string;
-  publishedAt: string;
-  authorName: string;
+  fields: {
+    title: string;
+    slug: string;
+    excerpt: string;
+    content: any; // Rich text content
+    coverImage?: Asset;
+    coverImageUrl?: string;
+    authorAvatarUrl?: string;
+    category: string;
+    publishedAt: string;
+    authorName: string;
+  };
+  contentTypeId: string;
 }
 
 // Fetch all blog posts
-export async function getBlogPosts(): Promise<Entry<ContentfulBlogPost>[]> {
+export async function getBlogPosts(): Promise<Entry<any>[]> {
   try {
-    const response = await contentfulClient.getEntries<ContentfulBlogPost>({
+    const response = await contentfulClient.getEntries({
       content_type: 'blogPost', // This should match your Contentful content type ID
-      order: '-sys.createdAt', // Order by creation date, newest first
+      order: ['-sys.createdAt'], // Order by creation date, newest first
     });
     
     return response.items;
@@ -52,9 +55,9 @@ export async function getBlogPosts(): Promise<Entry<ContentfulBlogPost>[]> {
 }
 
 // Fetch a single blog post by slug
-export async function getBlogPostBySlug(slug: string): Promise<Entry<ContentfulBlogPost> | null> {
+export async function getBlogPostBySlug(slug: string): Promise<Entry<any> | null> {
   try {
-    const response = await contentfulClient.getEntries<ContentfulBlogPost>({
+    const response = await contentfulClient.getEntries({
       content_type: 'blogPost',
       'fields.slug': slug,
       limit: 1,
@@ -67,12 +70,12 @@ export async function getBlogPostBySlug(slug: string): Promise<Entry<ContentfulB
 }
 
 // Fetch blog posts by category
-export async function getBlogPostsByCategory(category: string): Promise<Entry<ContentfulBlogPost>[]> {
+export async function getBlogPostsByCategory(category: string): Promise<Entry<any>[]> {
   try {
-    const response = await contentfulClient.getEntries<ContentfulBlogPost>({
+    const response = await contentfulClient.getEntries({
       content_type: 'blogPost',
       'fields.category': category,
-      order: '-sys.createdAt',
+      order: ['-sys.createdAt'],
     });
     return response.items;
   } catch (error) {
@@ -84,14 +87,14 @@ export async function getBlogPostsByCategory(category: string): Promise<Entry<Co
 // Get all unique categories
 export async function getCategories(): Promise<string[]> {
   try {
-    const response = await contentfulClient.getEntries<ContentfulBlogPost>({
+    const response = await contentfulClient.getEntries({
       content_type: 'blogPost',
-      select: 'fields.category',
+      select: ['fields.category'],
     });
     
     const categories = response.items
-      .map(item => item.fields.category)
-      .filter((category, index, self) => self.indexOf(category) === index);
+      .map((item: any) => item.fields?.category)
+      .filter((category: any, index: number, self: any[]) => self.indexOf(category) === index);
     
     return categories;
   } catch (error) {
