@@ -242,7 +242,7 @@ The key is leveraging Anima's design analysis capabilities to preserve your blog
     description: 'Learn the best practices for integrating APIs into your web applications with proper error handling and security.',
     author: {
       name: 'Myriam Cohen',
-      avatarSrc: 'https://images.unsplash.com/photo-1527980965255-d3b8646d1890?w=150&h=150&fit=crop&crop=face',
+      avatarSrc: 'https://i.pravatar.cc/150?img=32',
       href: '/blog/author/myriam-cohen/',
     },
     date: 'January 8, 2025',
@@ -337,7 +337,7 @@ The key is leveraging Anima's design analysis capabilities to preserve your blog
     description: 'Explore emerging technologies and trends that will shape the future of web development.',
     author: {
       name: 'Myriam Cohen',
-      avatarSrc: 'https://images.unsplash.com/photo-1527980965255-d3b8646d1890?w=150&h=150&fit=crop&crop=face',
+      avatarSrc: 'https://i.pravatar.cc/150?img=32',
       href: '/blog/author/myriam-cohen/',
     },
     date: 'December 25, 2024',
@@ -432,7 +432,7 @@ The key is leveraging Anima's design analysis capabilities to preserve your blog
     description: 'Complete guide to creating responsive designs that work seamlessly across all devices using modern CSS and Anima tools.',
     author: {
       name: 'Myriam Cohen',
-      avatarSrc: 'https://images.unsplash.com/photo-1527980965255-d3b8646d1890?w=150&h=150&fit=crop&crop=face',
+      avatarSrc: 'https://i.pravatar.cc/150?img=32',
       href: '/blog/author/myriam-cohen/',
     },
     date: 'March 15, 2025',
@@ -527,7 +527,7 @@ The key is leveraging Anima's design analysis capabilities to preserve your blog
     description: 'Explore the differences between AI agents, assistants, and tools, understanding their unique roles, capabilities, and applications in technology.',
     author: {
       name: 'Myriam Cohen',
-      avatarSrc: 'https://images.unsplash.com/photo-1527980965255-d3b8646d1890?w=150&h=150&fit=crop&crop=face',
+      avatarSrc: 'https://i.pravatar.cc/150?img=32',
       href: '/blog/author/myriam-cohen/',
     },
     date: 'January 18, 2025',
