@@ -1,4 +1,6 @@
-import { AnimaSDK } from '@animaapp/anima-sdk';
+// Import AnimaSDK - using dynamic import to avoid type issues
+import * as AnimaSDKModule from '@animaapp/anima-sdk';
+const AnimaSDK = (AnimaSDKModule as any).AnimaSDK || (AnimaSDKModule as any).default;
 
 // Anima SDK configuration
 const ANIMA_API_KEY = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZGVudGl0eSI6IjY4YzczODA1ZmRjYzJhODkwMGRiYzI4NyIsImRlZmF1bHRUZWFtSWQiOiI2OGM3MzgwNmZkY2MyYTg5MDBkYmMyOGEiLCJpYXQiOjE3NTc4ODY2MDIsImV4cCI6MTc4OTQyMjYwMiwibmJmIjoxNzU3ODg2NjAyfQ.kNz1SOq2TkKau7ZdzbABxrdgpYexZcicniUu8j1Cv_A';
@@ -23,7 +25,7 @@ export async function generateReactCodeFromDesign(designUrl: string): Promise<st
     console.log('🎨 Anima SDK: Generating React code from design...');
     
     // Use Anima SDK to analyze the design
-    const design = await animaSDK.analyzeDesign(designUrl);
+    await animaSDK.analyzeDesign(designUrl);
     
     // Generate React components
     const reactCode = await animaSDK.generateReactCode({
@@ -59,11 +61,11 @@ export async function demonstrateAnimaIntegration() {
       reactCode,
       message: 'Anima SDK integration successful'
     };
-  } catch (error) {
+  } catch (error: any) {
     console.error('❌ Anima SDK Integration Error:', error);
     return {
       success: false,
-      error: error.message,
+      error: error?.message || 'Unknown error',
       message: 'Anima SDK integration failed'
     };
   }
